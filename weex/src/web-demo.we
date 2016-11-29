@@ -1,0 +1,64 @@
+<template>
+    <div class="wrapper">
+        <web class="content" id="webview" src='https://www.baidu.com' onpagestart="startload" onpagefinish="finishload" onerror="failload"></web>
+        <div class="toolbar" append = "tree">
+            <wxc-button type="primary" size="small" value="back" onclick="goback"
+                    style="margin-left:30px;width:210px; margin-top:5px; margin-bottom:5px"></wxc-button>
+            <wxc-button type="primary" size="small" value="forward" onclick="goforward"
+                    style="margin-left:30px;width:210px; margin-top:5px; margin-bottom:5px"></wxc-button>
+            <wxc-button type="primary" size="small" value="refresh" onclick="refresh"
+                    style="margin-left:30px;width:210px; margin-top:5px; margin-bottom:5px"></wxc-button>        
+        </div>
+    </div>
+</template>
+
+<style>
+    .wrapper { 
+        width: 750; 
+        height: 1206;
+    }
+    .content {
+        margin-top: 0;
+        width: 750;
+        height: 1086;
+    }
+    .toolbar { 
+        flex-direction: row;
+        margin-top: 10;
+        margin-bottom: 10;
+        height: 100;
+    }
+</style>
+
+<script>
+    require('weex-components');
+
+    module.exports = {
+        methods: {
+            goback: function() {
+                var $webview = require('@weex-module/webview');
+                var webElement = this.$el('webview');
+                $webview.goBack(webElement.ref);           
+             },
+            goforward: function() {
+                var $webview = require('@weex-module/webview');
+                var webElement = this.$el('webview');
+                $webview.goForward(webElement.ref); 
+            },
+            refresh: function() {
+                var $webview = require('@weex-module/webview');
+                var webElement = this.$el('webview');
+                $webview.reload(webElement.ref); 
+            },
+            startload: function(e) {
+
+            },
+            finishload: function(e) {
+
+            },
+            failload: function(e) {
+
+            }
+        }
+    }
+</script>

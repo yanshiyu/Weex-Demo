@@ -1,0 +1,38 @@
+<template>
+	<div style="width: 750; height: 1206">
+		<div>
+		    <text style="font-size: 40">progress</text>
+			<text>{{progress}}</text>
+		</div>
+		<div>
+			<text>result</text>
+			<text>{{result}}</text>
+		</div>
+	</div>
+</template>
+
+<script>
+	module.exports = {
+		data: {
+			progress: '',
+			result: ''
+		},
+		methods: {
+
+		},
+		ready: function () {
+			var stream = require('@weex-module/stream');
+			stream.fetch({
+				method: 'GET',
+				url: 'http://jsfiddle.net/echo/jsonp/?callback=anything&result=content_in_response',
+				type: 'jsonp',
+			}, function(response) {
+				console.log(response);
+				this.result = response;
+			}, function(response) {
+				console.log(response);
+				this.progress = response;
+			});
+		}
+	}
+</script>

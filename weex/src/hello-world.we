@@ -1,0 +1,70 @@
+<template>
+    <div class="container">
+        <image class="img" src="http://gw.alicdn.com/tps/i2/TB1DpsmMpXXXXabaXXX20ySQVXX-512-512.png_400x400.jpg"></image>
+        <text id="textId" class="text" style="font-size: 120" onclick="onclick">Hello World</text>
+        <a href="http://g.tbcdn.cn/ali-wireless-h5/res/0.0.16/hello.js">
+            <text style="color: blue; margin-top: 40">Click me to see how 'A' element opens a new world.</text>
+        </a>
+        <weex-button class="button" title="确定" if="shown"></weex-button>
+        <yzt-button title="取消" style="margin-top: 40" onclick="cancelclick"></yzt-button>
+    </div>
+</template>
+
+<style>
+  .container {
+    align-items: center;
+  }
+  .img {
+    width: 400;
+    height: 400;
+  }
+  .text {
+    color: red;
+    margin-top: 80;
+  }
+  .button {
+    margin-top: 80;
+    width: 480;
+    height: 96;
+  }
+</style>
+
+<script>
+  var dom = require('@weex-module/dom');
+  var modal = require('@weex-module/modal');
+  module.exports = {
+    data: {
+      shown: true,
+    },
+    methods: {
+      onclick: function() {
+        let text = this.$el('textId');
+        let attr = text.attr;
+        let style = {'color': 'green'};
+        console.log(text);
+        if (attr.value === 'Hello World') {
+          attr.value = 'Hello Weex';
+          style.color = 'green';
+          this.shown = false;
+        } else {
+          attr.value = 'Hello World';
+          style.color = 'red';
+          this.shown = true;
+        }
+        dom.updateAttrs(text, attr);
+        dom.updateStyle(text, style);
+      },
+      cancelclick: function (arg, e) {
+        modal.confirm({message: '是否取消?', okTitle:'YES', cancelTitle: "NO"}, function(result) {
+          modal.toast({'message': '你点击了' + result, 'duration': 1});
+        })
+      },
+    },
+    ready: function () {
+      var globalEvent = require('@weex-module/globalEvent');
+      globalEvent.addEventListener("weex_hello_world_confirm", function (e) {
+        modal.toast({'message': 'success', 'duration': 1});
+      });
+    },
+  }
+</script>

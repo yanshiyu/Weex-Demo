@@ -1,0 +1,79 @@
+<template>
+	<div class="container" onviewappear="onviewappear" onviewdisappear="onviewdisappear">
+		<text style="font-size: 80">lifecycle</text>
+		<div class="container" style="margin-top: 40">
+			<text class="text">init</text>
+			<text class="word">(在初始化内部变量，并且添加了事件功能后被触发)</text>
+			<text class="text">↓</text>
+			<text class="text">created</text>
+			<text class="word">(完成数据绑定之后，模板编译之前被触发)</text>
+			<text class="text">↓</text>
+			<text class="text">ready</text>
+			<text class="word">(模板已经编译并且生成了 Virtual DOM 之后被触发)</text>
+			<text class="text">↓</text>
+			<text class="text">onviewappear</text>
+			<text class="word">(页面出现)</text>
+			<text class="text">↓</text>
+			<text class="text">onviewdisappear</text>
+			<text class="word">(页面消失)</text>
+			<text class="text">↓</text>
+			<text class="text">destroyed</text>
+			<text class="word">(在页面被销毁时调用)</text>
+		</div>
+	</div>
+</template>
+
+<style>
+	.container {
+		align-items: center;
+	}
+	.text {
+		font-size: 56;
+		color: blue;
+	}
+	.word {
+		font-size: 28;
+		color: red;
+	}
+</style>
+
+<script>
+	module.exports = {
+		data: {
+			firstName: 'Tom',
+			lastName: 'Smith',
+		},
+		computed: {
+			name: {
+				get: function () {
+					return this.firstName + ' ' + this.lastName;
+				},
+				set: function(value) {
+					var names = value.split(' ');
+					this.firstName = names[0];
+					this.lastName = names[1];
+				}
+			}
+		},
+		methods: {
+			onviewappear: function (e) {
+				console.log('onviewappear');
+			},
+			onviewdisappear: function (e) {
+				console.log('onviewdisappear');
+			},
+		},
+		init: function () {
+			console.log('init');
+		},
+		created: function () {
+			console.log('created');
+		},
+		ready: function () {
+			console.log('ready');
+		},
+		destroyed: function () {
+			console.log('destroyed');
+		}
+	}
+</script>

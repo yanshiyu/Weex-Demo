@@ -1,0 +1,28 @@
+<template>
+	<div class="{{type}}" style="width: {{width}}; height: {{height}}; border-radius: {{height}} / 2">
+		<text class="title">{{title}}</text>
+	</div>
+</template>
+
+<style>
+	.default {
+		justify-content: center;
+		align-items: center;
+		background-color: #CFA767;
+	}
+	.title {
+		color: white;
+		font-size: 40;
+	}
+</style>
+
+<script>
+	module.exports = {
+		data: {
+			title: '',
+			type: 'default',
+			width: 480.0,
+			height: 96.0,
+		},
+	}
+</script>

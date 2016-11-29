@@ -1,0 +1,50 @@
+<template>
+	<list>
+		<cell class="cell" repeat="{{items}}" onclick="onclick" index="{{$index}}">
+			<div class="container">
+				<text class="title">{{title}}</text>
+			</div>
+		</cell>
+	</list>
+</template>
+
+<style>
+    .cell {
+    	height: 120px;
+    	border-bottom-color: grey;
+    	border-bottom-width: 0.5;
+    }
+	.container {
+		align-items: center;
+		justify-content: center;
+	}
+	.title {
+		margin-top: 30;
+		font-size: 60;
+		color: #4a4a4a;
+	}
+</style>
+
+<script>
+	module.exports = {
+		data: {
+			items: [
+			{name: 'lifecycle.js', title: '生命周期'},
+			{name: 'hello-world.js', title: 'hello-world'},
+			{name: 'list-basic.js', title: 'list-basic'},
+			{name: 'list-demo.js', title: 'list-demo'},
+			{name: 'coupon.js', title: '优惠券'},
+			{name: 'web-demo.js', title: 'webView'},
+			{name: 'slider-demo.js', title: '轮播'},
+			]
+		},
+		methods: {
+			onclick: function(e) {
+				const index = e.target.attr.index;
+				const item = this.items[index];
+				const event = require('@weex-module/event');
+				event.openURL(item.name);
+			}
+		},
+	}
+</script>

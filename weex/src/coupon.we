@@ -1,0 +1,364 @@
+<template>
+  <list class="list">
+    <cell 
+      class="cell"
+      onclick="oncellclick"
+      onappear="onappear"
+      index="{{$index}}"
+    >
+      <coupon-cell 
+        repeat="{{couponList}}" 
+        couponAmountDisplay="{{couponAmountDisplay}}" 
+        useDirection="{{useDirection}}" 
+        indateDate="{{indateDate}}">
+      </coupon-cell>
+    </cell>
+  </list>
+</template>
+
+<style>
+  .list {
+    background-color: #f5f5f5;
+    height: 1200;
+  }
+  .cell {
+    background-color: #f5f5f5;
+    width: 750;
+  }
+</style>
+
+<script>
+  require('./sub_src/coupon-cell.we');
+  module.exports = {
+    methods: {
+      oncellclick: function(e) {
+        this.$openURL('list-demo.js');
+      },
+    },
+  }
+</script>
+
+<script type="data">
+  {
+    couponList: [{
+        "couponAmount" : "99999",
+        "couponAmountDisplay" : "99.99",
+        "couponName" : "指定满1000",
+        "couponType" : "1",
+        "fullAmount" : 100000,
+        "fullAmountDisplay" : "1000.00",
+        "idTcoupon" : "0963aa917de440009ec91ee4f6204acd",
+        "indateBeginDate" : 1472659200000,
+        "indateDate" : "2016年09月01日-2016年10月31日",
+        "indateEndDate" : 1477843200000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-11-01 00:00:01",
+        "useDirection" : "指定满1000减999.99",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "10",
+        "couponAmountDisplay" : "0.10",
+        "couponName" : "li_004",
+        "couponType" : "1",
+        "fullAmount" : 10,
+        "fullAmountDisplay" : "0.10",
+        "idTcoupon" : "58952b7390d34885a3fae83e037ddb1b",
+        "indateBeginDate" : 1477238400000,
+        "indateDate" : "2016年10月24日-2016年10月31日",
+        "indateEndDate" : 1477843200000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-11-01 00:00:01",
+        "useDirection" : "满1分减1分",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "800",
+        "couponAmountDisplay" : "8.00",
+        "couponName" : "测试生产bug",
+        "couponType" : "1",
+        "fullAmount" : 8800,
+        "fullAmountDisplay" : "88.00",
+        "idTcoupon" : "1ab56386d5ad4a8cb488c2764091bc5a",
+        "indateBeginDate" : 1475164800000,
+        "indateDate" : "2016年09月30日-2016年10月31日",
+        "indateEndDate" : 1477843200000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-11-01 00:00:01",
+        "useDirection" : "测试生产bug",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "2000",
+        "couponAmountDisplay" : "20.00",
+        "couponName" : "测试优惠1018",
+        "couponType" : "1",
+        "fullAmount" : 10000,
+        "fullAmountDisplay" : "100.00",
+        "idTcoupon" : "8e64c224b6174706911585bb09954ab6",
+        "indateBeginDate" : 1476720000000,
+        "indateDate" : "2016年10月18日-2016年10月23日",
+        "indateEndDate" : 1477152000000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-25 14:45:00",
+        "useDirection" : "测试优惠",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "300",
+        "couponAmountDisplay" : "3.00",
+        "couponName" : "活动发券ge005",
+        "couponType" : "2",
+        "fullAmount" : 0,
+        "fullAmountDisplay" : "0.00",
+        "gainDate" : 1476759922000,
+        "idTcoupon" : "98093b6403d540c2bf3e0d1617b50e3e",
+        "indateDate" : "2016年10月18日-2016年10月20日",
+        "indateNumber" : "3",
+        "indateType" : "2",
+        "updatedDate" : "2016-10-21 00:00:00",
+        "useDirection" : "活动发券ge005",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "980",
+        "couponAmountDisplay" : "9.80",
+        "couponName" : "优惠券1018回归",
+        "couponType" : "1",
+        "fullAmount" : 990,
+        "fullAmountDisplay" : "9.90",
+        "idTcoupon" : "06b1be49129740aea85958958bcbc923",
+        "indateBeginDate" : 1476720000000,
+        "indateDate" : "2016年10月18日-2016年10月19日",
+        "indateEndDate" : 1476806400000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-20 00:00:00",
+        "useDirection" : "优惠券1018回归更",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "2090",
+        "couponAmountDisplay" : "20.90",
+        "couponName" : "指定满99.90",
+        "couponType" : "1",
+        "fullAmount" : 9990,
+        "fullAmountDisplay" : "99.90",
+        "gainDate" : 1474245450000,
+        "idTcoupon" : "4f3aeb140e1d4c0e80d0f37a6808067d",
+        "indateDate" : "2016年09月19日-2016年10月18日",
+        "indateNumber" : "30",
+        "indateType" : "2",
+        "updatedDate" : "2016-10-19 00:00:00",
+        "useDirection" : "指定满99.90减20.90",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "600",
+        "couponAmountDisplay" : "6.00",
+        "couponName" : "优惠券1015组合4",
+        "couponType" : "1",
+        "fullAmount" : 800,
+        "fullAmountDisplay" : "8.00",
+        "gainDate" : 1476782532000,
+        "idTcoupon" : "8b51e87dde46468db29467792d2b39fd",
+        "indateDate" : "2016年10月18日",
+        "indateNumber" : "1",
+        "indateType" : "2",
+        "updatedDate" : "2016-10-19 00:00:00",
+        "useDirection" : "优惠券1015组合4",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "890",
+        "couponAmountDisplay" : "8.90",
+        "couponName" : "优惠券1017组合1",
+        "couponType" : "2",
+        "fullAmount" : 0,
+        "fullAmountDisplay" : "0.00",
+        "idTcoupon" : "69b78cdc9d864386906db9d880630163",
+        "indateBeginDate" : 1476633600000,
+        "indateDate" : "2016年10月17日-2016年10月18日",
+        "indateEndDate" : 1476720000000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-19 00:00:00",
+        "useDirection" : "优惠券1017002",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "5000",
+        "couponAmountDisplay" : "50.00",
+        "couponName" : "全场满200即可使用",
+        "couponType" : "1",
+        "fullAmount" : 20000,
+        "fullAmountDisplay" : "200.00",
+        "idTcoupon" : "8ec558d359074b51abdf9b4c9902fb6c",
+        "indateBeginDate" : 1472659200000,
+        "indateDate" : "2016年09月01日-2016年10月01日",
+        "indateEndDate" : 1475251200000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-02 00:00:00",
+        "useDirection" : "全场满200减50",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "5000",
+        "couponAmountDisplay" : "50.00",
+        "couponName" : "指定立减50",
+        "couponType" : "2",
+        "fullAmount" : 0,
+        "fullAmountDisplay" : "0.00",
+        "idTcoupon" : "3a2536428cfc42d49b3528162e4e5ad8",
+        "indateBeginDate" : 1472659200000,
+        "indateDate" : "2016年09月01日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "指定立减50",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "15000",
+        "couponAmountDisplay" : "150.00",
+        "couponName" : "满400减150拆单",
+        "couponType" : "1",
+        "fullAmount" : 40000,
+        "fullAmountDisplay" : "400.00",
+        "idTcoupon" : "39fdeb97697f4fa7bb5373e8c78118c5",
+        "indateBeginDate" : 1474905600000,
+        "indateDate" : "2016年09月27日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "满400减150拆单",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "2300",
+        "couponAmountDisplay" : "23.00",
+        "couponName" : "nk指定2-3",
+        "couponType" : "1",
+        "fullAmount" : 10000,
+        "fullAmountDisplay" : "100.00",
+        "idTcoupon" : "1be3e40e6225406c9298e782db10d4f7",
+        "indateBeginDate" : 1474819200000,
+        "indateDate" : "2016年09月26日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "指定2-3满百减23",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "1200",
+        "couponAmountDisplay" : "12.00",
+        "couponName" : "nk指定1-2减12",
+        "couponType" : "1",
+        "fullAmount" : 10000,
+        "fullAmountDisplay" : "100.00",
+        "idTcoupon" : "108c149d88434849b914faafb08c1c69",
+        "indateBeginDate" : 1474819200000,
+        "indateDate" : "2016年09月26日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "1-2指定满百减12",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "1000",
+        "couponAmountDisplay" : "10.00",
+        "couponName" : "nk指定01减10",
+        "couponType" : "1",
+        "fullAmount" : 10000,
+        "fullAmountDisplay" : "100.00",
+        "idTcoupon" : "6f258c7fdbf94f618dbc4656102fc872",
+        "indateBeginDate" : 1474819200000,
+        "indateDate" : "2016年09月26日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "指定01满百减十",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "900",
+        "couponAmountDisplay" : "9.00",
+        "couponName" : "测试001",
+        "couponType" : "1",
+        "fullAmount" : 9900,
+        "fullAmountDisplay" : "99.00",
+        "idTcoupon" : "71364a414fe342a8b936b671f20bc085",
+        "indateBeginDate" : 1474300800000,
+        "indateDate" : "2016年09月20日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "测试001",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "3000",
+        "couponAmountDisplay" : "30.00",
+        "couponName" : "立减30元",
+        "couponType" : "2",
+        "fullAmount" : 0,
+        "fullAmountDisplay" : "0.00",
+        "idTcoupon" : "1cb47fd92319464d83e42aa205ec6f90",
+        "indateBeginDate" : 1474473600000,
+        "indateDate" : "2016年09月22日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "优惠券未失效就可领取",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "4000",
+        "couponAmountDisplay" : "40.00",
+        "couponName" : "全场满100元即可使",
+        "couponType" : "1",
+        "fullAmount" : 10000,
+        "fullAmountDisplay" : "100.00",
+        "idTcoupon" : "d9dd9810e90148bebe1980263c492aea",
+        "indateBeginDate" : 1474560000000,
+        "indateDate" : "2016年09月23日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "优惠券未失效都可领取",
+        "userCouponStatus" : "3"
+      },
+      {
+        "couponAmount" : "7",
+        "couponAmountDisplay" : "0.07",
+        "couponName" : "qweqwe",
+        "couponType" : "1",
+        "fullAmount" : 77,
+        "fullAmountDisplay" : "0.77",
+        "idTcoupon" : "0cf67101e1cd4378a53a39840d89f608",
+        "indateBeginDate" : 1472659200000,
+        "indateDate" : "2016年09月01日-2016年09月30日",
+        "indateEndDate" : 1475164800000,
+        "indateNumber" : "0",
+        "indateType" : "1",
+        "updatedDate" : "2016-10-01 00:00:00",
+        "useDirection" : "qweqwe",
+        "userCouponStatus" : "3"
+      },]
+  }
+</script>
